@@ -91,8 +91,8 @@ export default {
         warning: 'hsl(var(--warning))',
       },
       fontFamily: {
-        mono: ['var(--font-geist-mono)'],
-        sans: ['var(--font-geist-sans)'],
+        body: ['var(--font-geist-mono)'],
+        title: ['var(--font-playfair)'],
       },
       keyframes: {
         'accordion-down': {

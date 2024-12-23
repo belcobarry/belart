@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 
 import { cn } from 'src/utilities/cn'
 import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
@@ -12,6 +11,13 @@ import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
+import { Playfair_Display as PlayfairDisplay } from 'next/font/google'
+
+const playfairDisplay = PlayfairDisplay({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -20,7 +26,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html
+      className={cn(GeistMono.variable, playfairDisplay.variable)}
+      lang="fr"
+      suppressHydrationWarning
+    >
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
